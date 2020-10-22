@@ -94,6 +94,9 @@ implementation {
     }
   }
 
+  event void AMControl.stopDone(error_t err) {
+  }
+  
   event void Timer0.fired() {
     if (!busy) {
       BlinkToRadioMsg* btrpkt = (BlinkToRadioMsg*)(call Packet.getPayload(&pkt, sizeof(BlinkToRadioMsg)));
