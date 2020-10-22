@@ -105,7 +105,7 @@ implementation {
     if (len == sizeof(BlinkToRadioMsg)) {
       BlinkToRadioMsg* btrpkt = (BlinkToRadioMsg*)payload;
         if( btrpkt->nodeid == (nx_uint16_t)1 ) {
-            call Leds.led0Toggle();
+            call Leds.led1Toggle();
         }
     }
     return msg;
