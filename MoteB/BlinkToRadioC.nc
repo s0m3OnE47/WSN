@@ -66,13 +66,6 @@ implementation {
   message_t pkt;
   bool busy = FALSE;
 
-  void setLeds(uint16_t val) {
-    if (val == 1)
-      call Leds.led1On();
-    else 
-      call Leds.led1Off();
-  }
-
   event void Boot.booted() {
     call AMControl.start();
   }
@@ -112,11 +105,8 @@ implementation {
     if (len == sizeof(BlinkToRadioMsg)) {
       BlinkToRadioMsg* btrpkt = (BlinkToRadioMsg*)payload;
         if( btrpkt->nodeid == (nx_uint16_t)1 ) {
-            setLeds(1);
+            call Leds.led0Toggle();
         }
-    }
-    else{
-        setLeds(0);
     }
     return msg;
   }

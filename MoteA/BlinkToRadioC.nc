@@ -96,6 +96,7 @@ implementation {
   event void AMSend.sendDone(message_t* msg, error_t err) {
     if (&pkt == msg) {
       busy = FALSE;
+      call Leds.led0Toggle();
     }
   }
 }
